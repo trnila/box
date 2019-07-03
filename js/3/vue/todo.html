@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div id="app">
+        <form class="form">
+          <div class="input-group">
+            <input type="text" v-model="input" class="form-control" placeholder="Your task...">
+            <span class="input-group-btn">
+              <button v-on:click="add" class="btn btn-primary pull-right">Add todo</button>
+            </span>
+          </div>
+        </form>
+
+        <ul class="list-unstyled">
+          <li v-for="(todo, index) in todos" role="button" v-on:click="mark(index)">
+            {{ todo.done ? '☑' : '☐' }}
+            {{ todo.text }}
+            <span v-on:click="remove(index)" class="text-danger pull-right" role="button">✘</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="todo.js"></script>
+  </body>
+</html>
