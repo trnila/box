@@ -21,11 +21,13 @@ function saveTodos() {
 }
 
 document.querySelector('#add-todo button').addEventListener('click', (e) => {
-  let val = document.querySelector('#add-todo input[type=text]').value;
-  addTodo(val)
+  let input = document.querySelector('#add-todo input[type=text]');
+  addTodo(input.value)
 
-  todos.push({text: val, done: false});
+  todos.push({text: input.value, done: false});
   saveTodos();
+
+  input.value = ''
 
   // prevent sending form to the server
   e.preventDefault()

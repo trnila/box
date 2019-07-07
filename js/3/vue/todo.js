@@ -17,6 +17,7 @@ new Vue({
         if(this.input) {
           this.todos.push({text: this.input, done: false})
           this.save()
+          this.input = ''
         }
 
         evt.preventDefault()
