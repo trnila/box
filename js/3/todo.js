@@ -24,7 +24,7 @@ document.querySelector('#add-todo button').addEventListener('click', (e) => {
   let val = document.querySelector('#add-todo input[type=text]').value;
   addTodo(val)
 
-  todos.push(val);
+  todos.push({text: val, done: false});
   saveTodos();
 
   // prevent sending form to the server
@@ -58,7 +58,7 @@ list.addEventListener('click', () => {
 
 try {
   todos = JSON.parse(localStorage.getItem('todos'))
-  todos.forEach(addTodo);
+  todos.forEach(item => addTodo(item.text));
 } catch(err) {
   // just dont load todos
   console.log(err);
