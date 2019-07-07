@@ -6,7 +6,7 @@ new Vue({
     },
     created() {
       try {
-        this.todos = JSON.parse(localStorage.getItem('todos'))
+        this.todos = JSON.parse(localStorage.getItem('todos')) || []
       } catch(err) {
         // just dont load todos
         console.log(err);

@@ -57,7 +57,7 @@ list.addEventListener('click', () => {
 });
 
 try {
-  todos = JSON.parse(localStorage.getItem('todos'))
+  todos = JSON.parse(localStorage.getItem('todos')) || []
   todos.forEach(item => addTodo(item.text));
 } catch(err) {
   // just dont load todos
