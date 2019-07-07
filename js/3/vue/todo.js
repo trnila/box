@@ -4,7 +4,7 @@ new Vue({
         todos: [],
         input: ''
     },
-    created: function() {
+    created() {
       try {
         this.todos = JSON.parse(localStorage.getItem('todos'))
       } catch(err) {
@@ -13,7 +13,7 @@ new Vue({
       }
     },
     methods: {
-      add: function(evt) {
+      add(evt) {
         if(this.input) {
           this.todos.push({text: this.input, done: false})
           this.save()
@@ -28,7 +28,7 @@ new Vue({
           this.save()
         }
       },
-      remove: function(index) {
+      remove(index) {
         this.todos.splice(index, 1)
         this.save()
       },
